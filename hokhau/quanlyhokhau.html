@@ -1,0 +1,909 @@
+<style>
+    .household-management {
+      background-color: #fff;
+      display: flex;
+      padding-bottom: 113px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    @media (max-width: 991px) {
+      .household-management {
+        padding-bottom: 100px;
+      }
+    }
+    
+    .header {
+      background-color: #229fed;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      padding: 0 10px 7px 41px;
+    }
+    
+    @media (max-width: 991px) {
+      .header {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+    }
+    
+    .header-content {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .header-content {
+        max-width: 100%;
+      }
+    }
+    
+    .logo-title {
+      display: flex;
+      gap: 24px;
+      color: #efefef;
+      flex-wrap: wrap;
+      margin: auto 0;
+      font: 500 48px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .logo-title {
+        max-width: 100%;
+        font-size: 40px;
+      }
+    }
+    
+    .logo {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 85px;
+    }
+    
+    .title {
+      text-shadow: 5px 5px 40px rgba(0, 0, 0, 0.25);
+      align-self: end;
+      margin-top: 21px;
+      flex-basis: auto;
+      flex-grow: 1;
+      border: 4px solid #640707;
+    }
+    
+    @media (max-width: 991px) {
+      .title {
+        font-size: 40px;
+      }
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 1.06;
+      object-fit: contain;
+      object-position: center;
+      width: 55px;
+      align-self: stretch;
+      margin: auto 0;
+    }
+    
+    .notification-icons {
+      align-self: stretch;
+      display: flex;
+      gap: 6px;
+    }
+    
+    .notification-icon {
+      aspect-ratio: 0.71;
+      object-fit: contain;
+      object-position: center;
+      width: 32px;
+      margin: auto 0;
+    }
+    
+    .settings-icon {
+      aspect-ratio: 0.88;
+      object-fit: contain;
+      object-position: center;
+      width: 88px;
+    }
+    
+    .user-role {
+      color: #fff;
+      margin: auto 0;
+      font: 500 32px Inter, sans-serif;
+    }
+    
+    .nav-menu {
+      align-self: center;
+      display: flex;
+      margin-top: 6px;
+      width: 100%;
+      max-width: 1278px;
+      gap: 40px 73px;
+      color: #fff;
+      flex-wrap: wrap;
+      font: 500 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .nav-menu {
+        max-width: 100%;
+      }
+    }
+    
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 40px 100px;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+    
+    @media (max-width: 991px) {
+      .nav-group {
+        max-width: 100%;
+      }
+    }
+    
+    .nav-item {
+      align-self: stretch;
+      flex-basis: auto;
+      margin: auto 0;
+      border: 1px solid #000;
+    }
+    
+    .nav-item-active {
+      background-color: #141010;
+      align-self: stretch;
+      padding: 10px 19px;
+      border: 1px solid #000;
+    }
+    
+    .nav-group-secondary {
+      display: flex;
+      gap: 23px;
+      flex-grow: 0;
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .main-content {
+      background-color: #f9ecec;
+      box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: center;
+      display: flex;
+      margin-top: 33px;
+      width: 100%;
+      max-width: 1381px;
+      flex-direction: column;
+      padding: 0 47px 21px 11px;
+    }
+    
+    @media (max-width: 991px) {
+      .main-content {
+        max-width: 100%;
+        padding-right: 20px;
+      }
+    }
+    
+    .content-header {
+      align-self: end;
+      display: flex;
+      width: 100%;
+      max-width: 1253px;
+      align-items: start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font: 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-header {
+        max-width: 100%;
+      }
+    }
+    
+    .section-title {
+      background-color: #930e6e;
+      display: flex;
+      gap: 40px 67px;
+      color: #0b0101;
+      font-weight: 500;
+      padding: 7px 18px;
+      border: 1px solid #000;
+    }
+    
+    .dropdown-icon {
+      aspect-ratio: 0.55;
+      object-fit: contain;
+      object-position: center;
+      width: 22px;
+      border-radius: 50%;
+      align-self: start;
+    }
+    
+    .action-buttons {
+      display: flex;
+      margin-top: 15px;
+      gap: 27px;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 991px) {
+      .action-buttons {
+        max-width: 100%;
+      }
+    }
+    
+    .delete-selected {
+      background-color: #eee6d1;
+      color: #930829;
+      font-weight: 500;
+      margin: auto 0;
+      padding: 4px 18px;
+    }
+    
+    .search-bar {
+      border-radius: 30px;
+      background-color: #a49d9d;
+      display: flex;
+      align-items: start;
+      gap: 40px 100px;
+      color: #070101;
+      font-weight: 400;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 9px 5px 0 13px;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 30px;
+      margin-top: 11px;
+    }
+    
+    .table-header {
+      border-radius: 10px;
+      background-color: #32f8e7;
+      display: flex;
+      margin-top: 10px;
+      gap: 40px 59px;
+      color: #000;
+      padding: 14px 23px;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .table-header {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .checkbox-header {
+      background-color: #fffcfc;
+      display: flex;
+      width: 24px;
+      height: 24px;
+      margin: auto 0;
+    }
+    
+    .household-id {
+      flex-grow: 1;
+      width: 127px;
+    }
+    
+    .issue-date {
+      flex-grow: 1;
+      width: 796px;
+    }
+    
+    @media (max-width: 991px) {
+      .issue-date {
+        max-width: 100%;
+      }
+    }
+    
+    .table-content {
+      align-self: end;
+      display: flex;
+      margin-top: 7px;
+      width: 100%;
+      max-width: 1295px;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 991px) {
+      .table-content {
+        max-width: 100%;
+        margin-right: 5px;
+      }
+    }
+    
+    .checkbox-column {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    @media (max-width: 991px) {
+      .checkbox-column {
+        display: none;
+      }
+    }
+    
+    .checkbox {
+      background-color: #fffcfc;
+      display: flex;
+      width: 24px;
+      height: 24px;
+      margin-top: 27px;
+    }
+    
+    .checkbox:first-child {
+      margin-top: 0;
+    }
+    
+    .table-body {
+      border-radius: 10px;
+      background-color: #fff;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 1px 80px 1px 33px;
+    }
+    
+    @media (max-width: 991px) {
+      .table-body {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .table-row {
+      gap: 20px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .table-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+    
+    .id-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 21%;
+      margin-left: 0px;
+    }
+    
+    @media (max-width: 991px) {
+      .id-column {
+        width: 100%;
+      }
+    }
+    
+    .id-content {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      gap: 20px;
+      color: #000;
+      white-space: nowrap;
+      justify-content: space-between;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .id-content {
+        margin-top: 40px;
+        white-space: initial;
+      }
+    }
+    
+    .id-numbers {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    @media (max-width: 991px) {
+      .id-numbers {
+        white-space: initial;
+      }
+    }
+    
+    .id-number {
+      margin-top: 23px;
+    }
+    
+    .id-number:first-child {
+      margin-top: 0;
+    }
+    
+    .details-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 79%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .details-column {
+        width: 100%;
+      }
+    }
+    
+    .details-content {
+      width: 100%;
+    }
+    
+    @media (max-width: 991px) {
+      .details-content {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    
+    .details-row {
+      gap: 20px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .details-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+    
+    .date-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 61%;
+      margin-left: 0px;
+    }
+    
+    @media (max-width: 991px) {
+      .date-column {
+        width: 100%;
+      }
+    }
+    
+    .date-content {
+      display: flex;
+      flex-grow: 1;
+      gap: 20px;
+      justify-content: space-between;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .date-content {
+        margin-top: 39px;
+      }
+    }
+    
+    .vertical-line {
+      width: 1px;
+      height: 520px;
+      border: 1px solid #000;
+    }
+    
+    .date-list {
+      display: flex;
+      flex-direction: column;
+      color: #000;
+      margin: auto 0;
+    }
+    
+    .date {
+      margin-top: 19px;
+    }
+    
+    .date:first-child {
+      margin-top: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .date {
+        margin-right: 2px;
+      }
+    }
+    
+    .details-link {
+      display: flex;
+      flex-direction: column;
+      color: #ae0f0f;
+      margin: auto 0;
+    }
+    
+    .detail-link {
+      margin-top: 18px;
+    }
+    
+    .detail-link:first-child {
+      margin-top: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .detail-link {
+        margin-right: 3px;
+      }
+    }
+    
+    .action-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 39%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .action-column {
+        width: 100%;
+      }
+    }
+    
+    .action-content {
+      display: flex;
+      flex-grow: 1;
+      gap: 12px;
+      font: 500 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .action-content {
+        margin-top: 39px;
+      }
+    }
+    
+    .action-list {
+      display: flex;
+      width: fit-content;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: 0;
+      margin: auto 0;
+    }
+    
+    .action-item {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 14px;
+    }
+    
+    .action-item:first-child {
+      margin-top: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .action-item {
+        margin-right: 4px;
+      }
+    }
+    
+    .edit-button {
+      background-color: #cef3ff;
+      color: #089326;
+      padding: 4px 10px;
+    }
+    
+    .delete-button {
+      background-color: #eee6d1;
+      color: #930829;
+      white-space: nowrap;
+      padding: 4px 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .delete-button {
+        white-space: initial;
+      }
+    }
+    
+    .pagination {
+      align-self: center;
+      display: flex;
+      margin-top: 47px;
+      width: 280px;
+      max-width: 100%;
+      gap: 9px;
+      color: #000;
+      white-space: nowrap;
+      font: 500 20px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .pagination {
+        margin-top: 40px;
+        white-space: initial;
+      }
+    }
+    
+    .page-number {
+      background-color: #d9d9d9;
+      width: 30px;
+      height: 30px;
+      padding: 0 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .page-number {
+        white-space: initial;
+      }
+    }
+    
+    .page-number-inactive {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      padding: 0 8px;
+    }
+    
+    @media (max-width: 991px) {
+      .page-number-inactive {
+        white-space: initial;
+      }
+    }
+    
+    .ellipsis {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      padding: 0 7px;
+    }
+    
+    @media (max-width: 991px) {
+      .ellipsis {
+        white-space: initial;
+      }
+    }
+    
+    .next-page {
+      background-color: #fff;
+      align-self: start;
+      width: 30px;
+      height: 30px;
+      padding: 4px 10px 14px;
+    }
+    
+    @media (max-width: 991px) {
+      .next-page {
+        white-space: initial;
+      }
+    }
+    
+    .last-page {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+    }
+    
+    @media (max-width: 991px) {
+      .last-page {
+        white-space: initial;
+      }
+    }
+    </style>
+    
+    <section class="household-management">
+      <header class="header">
+        <div class="header-content">
+          <div class="logo-title">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/87739a22cb78dbc7752194b08b9d0d9c16f81c53028d59152ac5b11fd6d00445?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Logo" class="logo" />
+            <h1 class="title">QUẢN LÍ DÂN CƯ</h1>
+          </div>
+          <div class="user-info">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/cba238534ff5647fc9dc7c468661de1ce1c86e5c00498182d387c5fa4d265977?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="User Avatar" class="user-avatar" />
+            <div class="notification-icons">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e25c51d38242adbeda4e7bf58477b73d8211a7e16a513a8cb3370b954dd14d8?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Notification" class="notification-icon" />
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6794c8fffeab5683a9e6141313aa5f377a8efc0931c88a8d279ad3b6195b6a45?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Settings" class="settings-icon" />
+            </div>
+            <span class="user-role">Cán bộ quản lý</span>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <div class="nav-group">
+            <a href="#" class="nav-item">Quản lý nhân khẩu</a>
+            <a href="#" class="nav-item">Quản lý dân cư</a>
+            <a href="#" class="nav-item-active">Quản lý hộ khẩu</a>
+          </div>
+          <div class="nav-group-secondary">
+            <a href="#" class="nav-item">Hoạt đọng đoàn thể</a>
+            <a href="#" class="nav-item">Quản lí CB</a>
+          </div>
+        </nav>
+      </header>
+    
+      <main class="main-content">
+        <div class="content-header">
+          <h2 class="section-title">
+            Quản lý hộ khẩu
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fdbd32b3366f5395ebd15f712baf6dc3a9ba99e6d03a894b2d131abe700cf4fb?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Dropdown" class="dropdown-icon" />
+          </h2>
+          <div class="action-buttons">
+            <button class="delete-selected">Xóa mục đã chọn</button>
+            <form class="search-bar">
+              <label for="search-input" class="visually-hidden">Tìm kiếm</label>
+              <input type="text" id="search-input" placeholder="Tìm kiếm..." />
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7245133efe530cb045e75d8d1c7287fc1178d5542e235ac02cee4baa098941da?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Search" class="search-icon" />
+            </form>
+          </div>
+        </div>
+    
+        <div class="table-header">
+          <div class="checkbox-header"></div>
+          <div>STT</div>
+          <div class="household-id">Mã hộ khẩu</div>
+          <div class="issue-date">Thời gian cấp</div>
+        </div>
+    
+        <div class="table-content">
+          <div class="checkbox-column">
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+            <div class="checkbox"></div>
+          </div>
+    
+          <div class="table-body">
+            <div class="table-row">
+              <div class="id-column">
+                <div class="id-content">
+                  <div class="id-numbers">
+                    <div>1</div>
+                    <div class="id-number">2</div>
+                    <div class="id-number">3</div>
+                    <div class="id-number">4</div>
+                    <div class="id-number">5</div>
+                    <div class="id-number">6</div>
+                    <div class="id-number">7</div>
+                    <div class="id-number">8</div>
+                    <div class="id-number">9</div>
+                    <div class="id-number">10</div>
+                  </div>
+                  <div class="vertical-line"></div>
+                  <div class="id-numbers">
+                    <div>123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                    <div class="id-number">123456</div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="details-column">
+                <div class="details-content">
+                  <div class="details-row">
+                    <div class="date-column">
+                      <div class="date-content">
+                        <div class="vertical-line"></div>
+                        <div class="date-list">
+                          <div class="date">13:00 02/02/2024</div>
+                          <div class="date">15:00 02/02/2021</div>
+                          <div class="date">13:00 02/02/2024</div>
+                          <div class="date">20:00 02/02/2022</div>
+                          <div class="date">13:00 02/02/2024</div>
+                          <div class="date">15:00 02/02/2022</div>
+                          <div class="date">13:00 02/02/2024</div>
+                          <div class="date">20:00 02/02/2022</div>
+                          <div class="date">13:00 02/02/2024</div>
+                          <div class="date">20:00 02/02/2022</div>
+                        </div>
+                        <div class="vertical-line"></div>
+                        <div class="details-link">
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                          <a href="#" class="detail-link">Xem chi tiết...</a>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div class="action-column">
+                      <div class="action-content">
+                        <div class="vertical-line"></div>
+                        <div class="action-list">
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                          <div class="action-item">
+                            <button class="edit-button">Chỉnh sửa</button>
+                            <button class="delete-button">Xóa</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <nav class="pagination" aria-label="Page navigation">
+          <span class="page-number">1</span>
+          <a href="#" class="page-number-inactive">2</a>
+          <a href="#" class="page-number-inactive">3</a>
+          <span class="ellipsis">...</span>
+          <a href="#" class="page-number-inactive">99</a>
+          <a href="#" class="next-page" aria-label="Next page">&gt;</a>
+          <a href="#" class="last-page" aria-label="Last page">&gt;&gt;</a>
+        </nav>
+      </main>
+    </section>

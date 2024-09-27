@@ -1,0 +1,858 @@
+<style>
+    .staff-management {
+      background-color: #fff;
+      display: flex;
+      padding-bottom: 10px;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: Inter, sans-serif;
+    }
+    
+    .header {
+      background-color: #229fed;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      font-weight: 500;
+      padding: 0 0 7px 41px;
+    }
+    
+    @media (max-width: 991px) {
+      .header {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+    }
+    
+    .header-content {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .header-content {
+        max-width: 100%;
+      }
+    }
+    
+    .title-wrapper {
+      align-self: start;
+      display: flex;
+      margin-top: 9px;
+      gap: 24px;
+      font-size: 48px;
+      color: #efefef;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 991px) {
+      .title-wrapper {
+        font-size: 40px;
+      }
+    }
+    
+    .logo {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 85px;
+    }
+    
+    .main-title {
+      text-shadow: 5px 5px 40px rgba(0, 0, 0, 0.25);
+      align-self: end;
+      margin-top: 21px;
+      flex-basis: auto;
+      flex-grow: 1;
+      border: 4px solid #640707;
+    }
+    
+    @media (max-width: 991px) {
+      .main-title {
+        font-size: 40px;
+      }
+    }
+    
+    .user-info {
+      display: flex;
+      gap: 18px;
+      font-size: 32px;
+      color: #fff;
+    }
+    
+    .user-icon {
+      aspect-ratio: 1.1;
+      object-fit: contain;
+      object-position: center;
+      width: 55px;
+      margin: auto 0;
+    }
+    
+    .user-details {
+      display: flex;
+      gap: 6px;
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 0.76;
+      object-fit: contain;
+      object-position: center;
+      width: 32px;
+      margin: auto 0;
+    }
+    
+    .user-role-icon {
+      aspect-ratio: 0.92;
+      object-fit: contain;
+      object-position: center;
+      width: 88px;
+    }
+    
+    .user-role {
+      margin-top: 13px;
+    }
+    
+    .nav-menu {
+      align-self: end;
+      display: flex;
+      margin-top: 8px;
+      align-items: start;
+      gap: 40px 47px;
+      font-size: 24px;
+      color: #fff;
+      flex-wrap: wrap;
+    }
+    
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      gap: 40px 75px;
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+    
+    @media (max-width: 991px) {
+      .primary-nav {
+        max-width: 100%;
+      }
+    }
+    
+    .nav-item {
+      align-self: stretch;
+      flex-grow: 1;
+      margin: auto 0;
+      border: 1px solid #000;
+    }
+    
+    .active-nav-item {
+      background-color: #229fed;
+      align-self: stretch;
+      padding: 10px 40px;
+      border: 1px solid #000;
+    }
+    
+    @media (max-width: 991px) {
+      .active-nav-item {
+        padding: 0 20px;
+      }
+    }
+    
+    .secondary-nav {
+      display: flex;
+      gap: 13px;
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+    
+    .secondary-nav-item {
+      flex-grow: 1;
+      margin: auto 0;
+      border: 1px solid #000;
+    }
+    
+    .active-secondary-nav-item {
+      background-color: #000;
+      padding: 10px 47px;
+    }
+    
+    @media (max-width: 991px) {
+      .active-secondary-nav-item {
+        padding: 0 20px;
+      }
+    }
+    
+    .main-content {
+      background-color: #f9ecec;
+      box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: center;
+      display: flex;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 1381px;
+      flex-direction: column;
+      padding: 35px 54px 35px 5px;
+    }
+    
+    @media (max-width: 991px) {
+      .main-content {
+        max-width: 100%;
+        padding-right: 20px;
+      }
+    }
+    
+    .content-header {
+      align-self: end;
+      display: flex;
+      width: 100%;
+      max-width: 1253px;
+      align-items: start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font: 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .content-header {
+        max-width: 100%;
+      }
+    }
+    
+    .section-title {
+      background-color: #930e6e;
+      display: flex;
+      align-items: start;
+      gap: 40px 79px;
+      color: #0b0101;
+      font-weight: 500;
+      padding: 2px 16px 11px;
+      border: 1px solid #000;
+    }
+    
+    .section-title-text {
+      margin-top: 11px;
+    }
+    
+    .section-icon {
+      aspect-ratio: 0.55;
+      object-fit: contain;
+      object-position: center;
+      width: 22px;
+      border-radius: 50%;
+    }
+    
+    .search-bar {
+      border-radius: 30px;
+      background-color: #a49d9d;
+      display: flex;
+      margin-top: 7px;
+      align-items: start;
+      gap: 40px 100px;
+      color: #070101;
+      font-weight: 400;
+      padding: 10px 5px 10px 13px;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1.07;
+      object-fit: contain;
+      object-position: center;
+      width: 30px;
+    }
+    
+    .staff-list {
+      display: flex;
+      margin-top: 17px;
+      width: 100%;
+      max-width: 1260px;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-list {
+        max-width: 100%;
+      }
+    }
+    
+    .staff-list-header {
+      border-radius: 10px;
+      background-color: #32f8e7;
+      display: flex;
+      gap: 40px 82px;
+      color: #000;
+      padding: 14px 33px;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-list-header {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .staff-id-header {
+      flex-grow: 1;
+      width: 110px;
+    }
+    
+    .staff-name-header {
+      flex-grow: 1;
+      width: 812px;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-name-header {
+        max-width: 100%;
+      }
+    }
+    
+    .staff-list-body {
+      border-radius: 10px;
+      background-color: #fff;
+      margin-top: 7px;
+      width: 100%;
+      padding: 14px 62px 7px;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-list-body {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .staff-list-row {
+      gap: 20px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-list-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+    
+    .staff-id-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 26%;
+      margin-left: 0px;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-id-column {
+        width: 100%;
+      }
+    }
+    
+    .staff-id-list {
+      display: flex;
+      margin-top: 10px;
+      width: 100%;
+      flex-direction: column;
+      color: #000;
+      white-space: nowrap;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-id-list {
+        margin-top: 40px;
+        white-space: initial;
+      }
+    }
+    
+    .staff-id-item {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-id-item {
+        margin-right: 2px;
+        white-space: initial;
+      }
+    }
+    
+    .staff-id-item-2 {
+      display: flex;
+      margin-top: 23px;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-id-item-2 {
+        margin-right: 3px;
+        white-space: initial;
+      }
+    }
+    
+    .staff-id-item-3 {
+      display: flex;
+      margin-top: 20px;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-id-item-3 {
+        white-space: initial;
+      }
+    }
+    
+    .staff-details-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 74%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-details-column {
+        width: 100%;
+      }
+    }
+    
+    .staff-details {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-details {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    
+    .staff-details-row {
+      gap: 20px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-details-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0px;
+      }
+    }
+    
+    .staff-name-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 32%;
+      margin-left: 0px;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-name-column {
+        width: 100%;
+      }
+    }
+    
+    .staff-name-list {
+      display: flex;
+      margin-top: 10px;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: start;
+      color: #000;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-name-list {
+        margin-top: 40px;
+      }
+    }
+    
+    .staff-name {
+      margin-top: 19px;
+    }
+    
+    .staff-name-2 {
+      align-self: stretch;
+      margin-top: 22px;
+    }
+    
+    .staff-actions-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 68%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-actions-column {
+        width: 100%;
+      }
+    }
+    
+    .staff-actions {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      font: 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-actions {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    
+    .staff-action-row {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-action-row {
+        max-width: 100%;
+      }
+    }
+    
+    .staff-action-details {
+      display: flex;
+      flex-direction: column;
+      color: #ae0f0f;
+      font-weight: 400;
+      margin: auto 0;
+    }
+    
+    .staff-action-link {
+      margin-top: 20px;
+    }
+    
+    .staff-action-buttons {
+      display: flex;
+      flex-direction: column;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-action-buttons {
+        white-space: initial;
+      }
+    }
+    
+    .staff-action-button-row {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-action-button-row {
+        white-space: initial;
+      }
+    }
+    
+    .approve-button {
+      background-color: #cef3ff;
+      color: #089326;
+      padding: 4px 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .approve-button {
+        white-space: initial;
+      }
+    }
+    
+    .reject-button {
+      background-color: #eee6d1;
+      color: #930829;
+      padding: 4px 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .reject-button {
+        white-space: initial;
+      }
+    }
+    
+    .staff-action-button-row-2 {
+      display: flex;
+      margin-top: 11px;
+      align-items: start;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-action-button-row-2 {
+        white-space: initial;
+      }
+    }
+    
+    .staff-action-row-2 {
+      display: flex;
+      margin-top: 11px;
+      width: 100%;
+      gap: 40px 77px;
+    }
+    <FILE path="manage-staff-section.html">
+    @media (max-width: 991px) {
+      .staff-action-row-2 {
+        max-width: 100%;
+      }
+    }
+    
+    .staff-action-link-2 {
+      color: #ae0f0f;
+      font-weight: 400;
+      flex-grow: 1;
+      width: 129px;
+      margin: auto 0;
+    }
+    
+    .staff-action-buttons-2 {
+      display: flex;
+      align-items: start;
+      gap: 33px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 991px) {
+      .staff-action-buttons-2 {
+        white-space: initial;
+      }
+    }
+    
+    .pagination {
+      align-self: center;
+      z-index: 10;
+      display: flex;
+      width: 548px;
+      max-width: 100%;
+      flex-direction: column;
+      margin: -6px 0 0 130px;
+    }
+    
+    .pagination-controls {
+      align-self: end;
+      display: flex;
+      align-items: start;
+      gap: 33px;
+    }
+    
+    .pagination-prev {
+      background-color: #f9ecec;
+      display: flex;
+      width: 92px;
+      height: 37px;
+    }
+    
+    .pagination-next {
+      background-color: #f9ecec;
+      display: flex;
+      width: 66px;
+      height: 37px;
+    }
+    
+    .pagination-numbers {
+      align-self: start;
+      display: flex;
+      margin-top: 397px;
+      gap: 9px;
+      color: #000;
+      white-space: nowrap;
+      font: 500 20px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .pagination-numbers {
+        margin-top: 40px;
+        white-space: initial;
+      }
+    }
+    
+    .pagination-number {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      padding: 0 7px;
+    }
+    
+    @media (max-width: 991px) {
+      .pagination-number {
+        white-space: initial;
+      }
+    }
+    
+    .pagination-next-page {
+      background-color: #fff;
+      align-self: start;
+      width: 30px;
+      height: 30px;
+      padding: 4px 10px 14px;
+    }
+    
+    @media (max-width: 991px) {
+      .pagination-next-page {
+        white-space: initial;
+      }
+    }
+    
+    .pagination-last-page {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+    }
+    
+    @media (max-width: 991px) {
+      .pagination-last-page {
+        white-space: initial;
+      }
+    }
+    </style>
+    
+    <section class="staff-management">
+      <header class="header">
+        <div class="header-content">
+          <div class="title-wrapper">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/87739a22cb78dbc7752194b08b9d0d9c16f81c53028d59152ac5b11fd6d00445?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" class="logo" alt="Logo" />
+            <h1 class="main-title">QUẢN LÍ DÂN CƯ</h1>
+          </div>
+          <div class="user-info">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ff6351116a3161e007b2967dcfe7f1909a96b6b124c66df0fac91a715463346a?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" class="user-icon" alt="User icon" />
+            <div class="user-details">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8e196d2f71ba0cdc0123b1f3111ebce88f0f42132f2767de8a21de7677a11199?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" class="user-avatar" alt="User avatar" />
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/71d75e0a1b4075f214b659021d7fd4a2f67de47e2ceb3be8724100991087fbc9?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" class="user-role-icon" alt="User role icon" />
+              <p class="user-role">Cán bộ <br /> quản lý</p>
+            </div>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <div class="primary-nav">
+            <a href="#" class="nav-item">Quản lý nhân khẩu</a>
+            <a href="#" class="nav-item">Quản lý dân cư</a>
+            <a href="#" class="active-nav-item">Quản lý hộ khẩu</a>
+          </div>
+          <div class="secondary-nav">
+            <a href="#" class="secondary-nav-item">Hoạt động đoàn thể</a>
+            <a href="#" class="active-secondary-nav-item">Quản lí CB</a>
+          </div>
+        </nav>
+      </header>
+    
+      <main class="main-content">
+        <div class="content-header">
+          <div class="section-title">
+            <h2 class="section-title-text">Quản lý cán bộ</h2>
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fdbd32b3366f5395ebd15f712baf6dc3a9ba99e6d03a894b2d131abe700cf4fb?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" class="section-icon" alt="Section icon" />
+          </div>
+          <form class="search-bar" role="search">
+            <label for="search-input" class="visually-hidden">Tìm kiếm</label>
+            <input id="search-input" type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm" />
+            <button type="submit" aria-label="Thực hiện tìm kiếm">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f615c2e5958e3a7bb71a6b9f098f51408e364148e169b004da24af3c2f001c44?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" class="search-icon" alt="Search icon" />
+            </button>
+          </form>
+        </div>
+    
+        <div class="staff-list">
+          <div class="staff-list-header">
+            <div>STT</div>
+            <div class="staff-id-header">Mã cán bộ</div>
+            <div class="staff-name-header">Họ và tên</div>
+          </div>
+          <div class="staff-list-body">
+            <div class="staff-list-row">
+              <div class="staff-id-column">
+                <div class="staff-id-list">
+                  <div class="staff-id-item">
+                    <div>1</div>
+                    <div>0012023278</div>
+                  </div>
+                  <div class="staff-id-item-2">
+                    <div>2</div>
+                    <div>8777374773</div>
+                  </div>
+                  <div class="staff-id-item-3">
+                    <div>3</div>
+                    <div>0102000030</div>
+                  </div>
+                </div>
+              </div>
+              <div class="staff-details-column">
+                <div class="staff-details">
+                  <div class="staff-details-row">
+                    <div class="staff-name-column">
+                      <div class="staff-name-list">
+                        <div>Duy Tùng</div>
+                        <div class="staff-name">Nguyễn Đức Hà</div>
+                        <div class="staff-name-2">Nguyễn Thành Vỹ</div>
+                      </div>
+                    </div>
+                    <div class="staff-actions-column">
+                      <div class="staff-actions">
+                        <div class="staff-action-row">
+                          <div class="staff-action-details">
+                            <a href="#" class="staff-action-link">Xem chi tiết ...</a>
+                            <a href="#" class="staff-action-link">Xem chi tiết ...</a>
+                          </div>
+                          <div class="staff-action-buttons">
+                            <div class="staff-action-button-row">
+                              <button class="approve-button">Duyệt</button>
+                              <button class="reject-button">Hủy</button>
+                            </div>
+                            <div class="staff-action-button-row-2">
+                              <button class="approve-button">Duyệt</button>
+                              <button class="reject-button">Hủy</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="staff-action-row-2">
+                          <a href="#" class="staff-action-link-2">Xem chi tiết ...</a>
+                          <div class="staff-action-buttons-2">
+                            <button class="approve-button">Duyệt</button>
+                            <button class="reject-button">Hủy</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <nav class="pagination" aria-label="Phân trang">
+          <div class="pagination-controls">
+            <button class="pagination-prev" aria-label="Trang trước"></button>
+            <button class="pagination-next" aria-label="Trang sau"></button>
+          </div>
+          <div class="pagination-numbers">
+            <button class="pagination-number" aria-current="page">1</button>
+            <button class="pagination-number">2</button>
+            <button class="pagination-number">3</button>
+            <span>...</span>
+            <button class="pagination-number">99</button>
+            <button class="pagination-next-page" aria-label="Trang kế tiếp">&gt;</button>
+            <button class="pagination-last-page" aria-label="Trang cuối cùng">&gt;&gt;</button>
+          </div>
+        </nav>
+      </main>
+    </section>

@@ -1,0 +1,592 @@
+<style>
+    .resident-management {
+      background-color: #fff;
+      display: flex;
+      padding-bottom: 413px;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .header {
+      background-color: #229fed;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      padding: 0 10px 7px 41px;
+    }
+    
+    .header-content {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .title-container {
+      align-self: flex-start;
+      display: flex;
+      margin-top: 9px;
+      gap: 24px;
+      color: #efefef;
+      flex-wrap: wrap;
+      font: 500 48px Inter, sans-serif;
+    }
+    
+    .logo {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 85px;
+    }
+    
+    .main-title {
+      text-shadow: 5px 5px 40px rgba(0, 0, 0, 0.25);
+      align-self: flex-end;
+      margin-top: 21px;
+      flex-basis: auto;
+      flex-grow: 1;
+      border: 4px solid #640707;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 1.1;
+      object-fit: contain;
+      object-position: center;
+      width: 55px;
+      align-self: stretch;
+      margin: auto 0;
+    }
+    
+    .user-icons {
+      align-self: stretch;
+      display: flex;
+      gap: 6px;
+    }
+    
+    .icon-1 {
+      aspect-ratio: 0.76;
+      object-fit: contain;
+      object-position: center;
+      width: 32px;
+      margin: auto 0;
+    }
+    
+    .icon-2 {
+      aspect-ratio: 0.92;
+      object-fit: contain;
+      object-position: center;
+      width: 88px;
+    }
+    
+    .user-role {
+      color: #fff;
+      margin: auto 0;
+      font: 500 32px Inter, sans-serif;
+    }
+    
+    .nav-menu {
+      align-self: center;
+      display: flex;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 1277px;
+      align-items: center;
+      gap: 40px 46px;
+      color: #fff;
+      font: 500 24px Inter, sans-serif;
+    }
+    
+    .nav-item {
+      align-self: stretch;
+      flex-grow: 1;
+      margin: auto 0;
+      border: 1px solid #000;
+    }
+    
+    .nav-item-active {
+      background-color: #141010;
+      align-self: stretch;
+      padding: 10px 46px;
+      border: 1px solid #000;
+    }
+    
+    .main-content {
+      background-color: #f9ecec;
+      box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: center;
+      display: flex;
+      margin-top: 19px;
+      width: 100%;
+      max-width: 1381px;
+      padding-top: 14px;
+      flex-direction: column;
+    }
+    
+    .content-header {
+      align-self: center;
+      display: flex;
+      margin-left: 17px;
+      width: 100%;
+      max-width: 1253px;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font: 24px Inter, sans-serif;
+    }
+    
+    .section-title {
+      background-color: #930e6e;
+      color: #0b0101;
+      font-weight: 500;
+      padding: 12px 17px;
+      border: 1px solid #000;
+    }
+    
+    .action-container {
+      display: flex;
+      margin-top: 15px;
+      gap: 27px;
+      flex-wrap: wrap;
+    }
+    
+    .delete-selected {
+      background-color: #eee6d1;
+      color: #930829;
+      font-weight: 500;
+      margin: auto 0;
+      padding: 4px 18px;
+    }
+    
+    .search-container {
+      border-radius: 30px;
+      background-color: #a49d9d;
+      display: flex;
+      align-items: flex-start;
+      gap: 40px 100px;
+      color: #070101;
+      font-weight: 400;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 10px 5px 10px 13px;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1.07;
+      object-fit: contain;
+      object-position: center;
+      width: 30px;
+    }
+    
+    .table-container {
+      display: flex;
+      margin-top: 10px;
+      width: 100%;
+      flex-direction: column;
+      padding: 0 47px 0 11px;
+    }
+    
+    .table-header {
+      border-radius: 10px;
+      background-color: #32f8e7;
+      display: flex;
+      width: 100%;
+      align-items: flex-start;
+      gap: 40px 100px;
+      color: #000;
+      flex-wrap: wrap;
+      padding: 14px 80px 14px 23px;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    .header-group {
+      display: flex;
+      gap: 40px 59px;
+      white-space: nowrap;
+    }
+    
+    .checkbox {
+      background-color: #fffcfc;
+      align-self: flex-start;
+      display: flex;
+      margin-top: 4px;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .header-items {
+      display: flex;
+      gap: 40px 100px;
+    }
+    
+    .table-body {
+      display: flex;
+      gap: 23px;
+      flex-wrap: wrap;
+      margin: 7px 0 0 23px;
+    }
+    
+    .checkbox-column {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .table-row {
+      border-radius: 10px;
+      background-color: #fff;
+      display: flex;
+      gap: 40px 75px;
+      flex-grow: 1;
+      flex-basis: auto;
+      padding: 0 63px;
+      font: 24px Inter, sans-serif;
+    }
+    
+    .row-content {
+      display: flex;
+      align-items: center;
+      gap: 40px 49px;
+      color: #000;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    
+    .column {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+    
+    .divider {
+      align-self: stretch;
+      width: 1px;
+      height: 224px;
+      border: 1px solid #000;
+    }
+    
+    .action-column {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    
+    .action-buttons {
+      display: flex;
+      width: fit-content;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: 0;
+      margin: auto 0;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    .edit-button {
+      background-color: #cef3ff;
+      color: #089326;
+      padding: 4px 10px;
+    }
+    
+    .delete-button {
+      background-color: #eee6d1;
+      color: #930829;
+      white-space: nowrap;
+      padding: 4px 10px;
+    }
+    
+    .pagination {
+      align-self: center;
+      display: flex;
+      margin-top: 7px;
+      width: 280px;
+      max-width: 100%;
+      gap: 9px;
+      color: #000;
+      white-space: nowrap;
+      font: 500 20px Inter, sans-serif;
+    }
+    
+    .page-number {
+      background-color: #d9d9d9;
+      width: 30px;
+      height: 30px;
+      padding: 0 10px;
+    }
+    
+    .page-number-active {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      padding: 0 8px;
+    }
+    
+    .ellipsis {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      padding: 0 7px;
+    }
+    
+    .next-page {
+      background-color: #fff;
+      align-self: flex-start;
+      width: 30px;
+      height: 30px;
+      padding: 4px 10px 14px;
+    }
+    
+    .last-page {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+    }
+    
+    .footer-line {
+      margin-top: 11px;
+      height: 1px;
+      border: 1px solid #7e0d0d;
+    }
+    
+    @media (max-width: 991px) {
+      .resident-management {
+        padding-bottom: 100px;
+      }
+    
+      .header {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+    
+      .header-content {
+        max-width: 100%;
+      }
+    
+      .title-container {
+        font-size: 40px;
+      }
+    
+      .main-title {
+        font-size: 40px;
+      }
+    
+      .nav-menu {
+        max-width: 100%;
+      }
+    
+      .nav-item-active {
+        padding: 0 20px;
+      }
+    
+      .main-content {
+        max-width: 100%;
+      }
+    
+      .content-header {
+        max-width: 100%;
+      }
+    
+      .section-title {
+        padding-right: 20px;
+      }
+    
+      .action-container {
+        max-width: 100%;
+      }
+    
+      .table-container {
+        max-width: 100%;
+        padding-right: 20px;
+      }
+    
+      .table-header {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .header-group {
+        white-space: initial;
+      }
+    
+      .column {
+        display: none;
+        white-space: initial;
+      }
+    
+      .row-content {
+        white-space: initial;
+      }
+    
+      .delete-button {
+        white-space: initial;
+      }
+    
+      .pagination {
+        white-space: initial;
+      }
+    
+      .page-number {
+        white-space: initial;
+      }
+    
+      .page-number-active {
+        white-space: initial;
+      }
+    
+      .ellipsis {
+        white-space: initial;
+      }
+    
+      .next-page {
+        white-space: initial;
+      }
+    
+      .last-page {
+        white-space: initial;
+      }
+    
+      .footer-line {
+        max-width: 100%;
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    </style>
+    
+    <section class="resident-management">
+      <header class="header">
+        <div class="header-content">
+          <div class="title-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/87739a22cb78dbc7752194b08b9d0d9c16f81c53028d59152ac5b11fd6d00445?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Resident Management Logo" class="logo">
+            <h1 class="main-title">QUẢN LÍ DÂN CƯ</h1>
+          </div>
+          <div class="user-info">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2c6b5997b7c1cabccab631aa75b6f4d2ffc9260eacd826b174b6c39f8a0e16cc?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="User Avatar" class="user-avatar">
+            <div class="user-icons">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5b5de1c91f63ee7da2382cf35201d9fc8de3710dfd04e012c709ebca078147ef?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="" class="icon-1">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/71d75e0a1b4075f214b659021d7fd4a2f67de47e2ceb3be8724100991087fbc9?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="" class="icon-2">
+            </div>
+            <span class="user-role">Cán bộ quản lý</span>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <a href="#" class="nav-item">Quản lý nhân khẩu</a>
+          <a href="#" class="nav-item-active">Quản lý dân cư</a>
+          <a href="#" class="nav-item">Quản lý hộ khẩu</a>
+          <a href="#" class="nav-item">Hoạt dộng toàn thể</a>
+          <a href="#" class="nav-item">Quản lí CB</a>
+        </nav>
+      </header>
+      <main class="main-content">
+        <div class="content-header">
+          <h2 class="section-title">Quản lý dân cư</h2>
+          <div class="action-container">
+            <button class="delete-selected">Xóa mục đã chọn</button>
+            <form class="search-container">
+              <label for="search-input" class="visually-hidden">Tìm kiếm...</label>
+              <input type="text" id="search-input" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f615c2e5958e3a7bb71a6b9f098f51408e364148e169b004da24af3c2f001c44?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Search Icon" class="search-icon">
+            </form>
+          </div>
+        </div>
+        <div class="table-container">
+          <div class="table-header">
+            <div class="header-group">
+              <div class="checkbox" role="checkbox" tabindex="0" aria-checked="false"></div>
+              <span>STT</span>
+            </div>
+            <div class="header-items">
+              <span>Mã dân cư</span>
+              <span>Tầng</span>
+            </div>
+          </div>
+          <div class="table-body">
+            <div class="checkbox-column">
+              <div class="checkbox" role="checkbox" tabindex="0" aria-checked="false"></div>
+              <div class="checkbox" role="checkbox" tabindex="0" aria-checked="false"></div>
+              <div class="checkbox" role="checkbox" tabindex="0" aria-checked="false"></div>
+              <div class="checkbox" role="checkbox" tabindex="0" aria-checked="false"></div>
+            </div>
+            <div class="table-row">
+              <div class="row-content">
+                <div class="column">
+                  <span>1</span>
+                  <span>2</span>
+                  <span>3</span>
+                  <span>4</span>
+                </div>
+                <div class="divider"></div>
+                <div class="column">
+                  <span>0987934101</span>
+                  <span>0967217546</span>
+                  <span>0839262883</span>
+                  <span>03612378792</span>
+                </div>
+              </div>
+              <div class="row-content">
+                <div class="divider"></div>
+                <div class="column">
+                  <span>1</span>
+                  <span>2</span>
+                  <span>3</span>
+                  <span>4</span>
+                </div>
+              </div>
+              <div class="action-column">
+                <div class="divider"></div>
+                <div class="action-buttons">
+                  <div class="button-group">
+                    <button class="edit-button">Chỉnh sửa</button>
+                    <button class="delete-button">Xóa</button>
+                  </div>
+                  <div class="button-group">
+                    <button class="edit-button">Chỉnh sửa</button>
+                    <button class="delete-button">Xóa</button>
+                  </div>
+                  <div class="button-group">
+                    <button class="edit-button">Chỉnh sửa</button>
+                    <button class="delete-button">Xóa</button>
+                  </div>
+                  <div class="button-group">
+                    <button class="edit-button">Chỉnh sửa</button>
+                    <button class="delete-button">Xóa</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="pagination" aria-label="Pagination">
+          <span class="page-number" aria-current="page">1</span>
+          <a href="#" class="page-number-active">2</a>
+          <a href="#" class="page-number-active">3</a>
+          <span class="ellipsis">...</span>
+          <a href="#" class="page-number-active">99</a>
+          <a href="#" class="next-page" aria-label="Next page">&gt;</a>
+          <a href="#" class="last-page" aria-label="Last page">&gt;&gt;</a>
+        </nav>
+        <div class="footer-line"></div>
+      </main>
+    </section>

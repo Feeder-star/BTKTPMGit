@@ -1,0 +1,220 @@
+<style>
+    .personal-info {
+      border-radius: 0 0 0 0;
+      display: flex;
+      max-width: 612px;
+      flex-direction: column;
+      font-family: Inter, sans-serif;
+      color: #000;
+    }
+    
+    .view-details {
+      border-radius: 20px 20px 0 0;
+      background-color: #32F8E7;
+      width: 100%;
+      font-size: 32px;
+      font-weight: 400;
+      padding: 19px 10px;
+    }
+    
+    .info-container {
+      border-radius: 20px 20px 0 0;
+      background-color: #FFF;
+      display: flex;
+      margin-top: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 24px;
+      padding: 17px 0 80px;
+    }
+    
+    .personal-details {
+      display: flex;
+      margin-left: 10px;
+      width: 100%;
+      max-width: 443px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .detail-row {
+      display: flex;
+      gap: 26px;
+      margin-top: 15px;
+    }
+    
+    .detail-label {
+      font-weight: 700;
+    }
+    
+    .detail-value {
+      font-weight: 500;
+      flex-basis: auto;
+    }
+    
+    .view-population-info {
+      transform: rotate(-0.002502400166786314rad);
+      background-color: #D9D9D9;
+      margin-top: 19px;
+      color: #121087;
+      font-weight: 700;
+      padding: 7px 14px;
+    }
+    
+    .birth-registration {
+      align-self: stretch;
+      display: flex;
+      margin-top: 25px;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 80px 0 12px;
+    }
+    
+    .birth-title {
+      font-weight: 700;
+    }
+    
+    .birth-details {
+      display: flex;
+      margin-top: 14px;
+      gap: 30px;
+    }
+    
+    .birth-name {
+      font-weight: 500;
+      flex-basis: auto;
+    }
+    
+    .birth-date {
+      display: flex;
+      margin-top: 20px;
+      gap: 25px;
+    }
+    
+    .birth-place-gender {
+      display: flex;
+      margin-top: 19px;
+      width: 100%;
+      max-width: 492px;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    
+    .place-gender-labels {
+      display: flex;
+      flex-direction: column;
+      font-weight: 700;
+    }
+    
+    .place-gender-values {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: 0;
+      width: fit-content;
+    }
+    
+    .gender-nationality {
+      align-self: flex-end;
+      display: flex;
+      margin-top: 13px;
+      gap: 32px;
+      font-weight: 400;
+    }
+    
+    .reason-row {
+      display: flex;
+      margin-top: 14px;
+      gap: 38px;
+    }
+    
+    .notes {
+      font-weight: 700;
+      margin-top: 33px;
+    }
+    
+    @media (max-width: 991px) {
+      .view-details,
+      .info-container,
+      .personal-details,
+      .birth-registration {
+        max-width: 100%;
+      }
+      
+      .view-details {
+        padding-right: 20px;
+      }
+      
+      .info-container {
+        margin-right: 2px;
+      }
+      
+      .birth-registration {
+        padding-right: 20px;
+      }
+      
+      .birth-place-gender {
+        max-width: 100%;
+      }
+      
+      .place-gender-labels .birth-place {
+        margin-right: 5px;
+      }
+    }
+    </style>
+    
+    <section class="personal-info">
+      <header class="view-details">Xem chi tiết</header>
+      <div class="info-container">
+        <div class="personal-details">
+          <div class="detail-row">
+            <span class="detail-label">CCCD :</span>
+            <span class="detail-value">033204000387</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Họ và tên :</span>
+            <span class="detail-value">Nguyễn Minh Tuấn</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Quan hệ với người được khai sinh :</span>
+            <span class="detail-value">Bố</span>
+          </div>
+        </div>
+        <button class="view-population-info" tabindex="0">Xem thông tin về nhân khẩu &gt;&gt;</button>
+        <div class="birth-registration">
+          <h2 class="birth-title">Khai sinh cho người dưới đây:</h2>
+          <div class="birth-details">
+            <span class="detail-label">Họ và tên :</span>
+            <span class="birth-name">Nguyễn Đức Mạnh</span>
+          </div>
+          <div class="birth-date">
+            <span class="detail-label">Ngày, tháng, năm sinh:</span>
+            <span class="detail-value">17/12/2004</span>
+          </div>
+          <div class="birth-place-gender">
+            <div class="place-gender-labels">
+              <span class="birth-place">Nơi sinh :</span>
+              <span class="birth-gender">Giới tính :</span>
+            </div>
+            <div class="place-gender-values">
+              <span class="detail-value">Từ Sơn , Bắc Ninh</span>
+              <div class="gender-nationality">
+                <span>Nam</span>
+                <span class="detail-label">Quốc tịch:</span>
+                <span class="detail-value">Việt Nam</span>
+              </div>
+            </div>
+          </div>
+          <div class="reason-row">
+            <span class="detail-label">Lý do:</span>
+            <span class="detail-value">Khác</span>
+          </div>
+          <p class="notes">
+            Ghi chú : Không<br><br>
+            Mã Nhân Khẩu : 123456<br><br>
+          </p>
+        </div>
+      </div>
+    </section>

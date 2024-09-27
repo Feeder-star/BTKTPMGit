@@ -1,0 +1,450 @@
+<style>
+    .activity-management {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding-bottom: 11px;
+    }
+    
+    .header {
+      background-color: #229fed;
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px 9px 41px;
+      width: 100%;
+    }
+    
+    .header-content {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    
+    .title-container {
+      align-self: start;
+      display: flex;
+      gap: 24px;
+      color: #efefef;
+      flex-wrap: wrap;
+      font: 500 48px Inter, sans-serif;
+      margin-top: 9px;
+    }
+    
+    .logo {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 85px;
+    }
+    
+    .main-title {
+      text-shadow: 5px 5px 40px rgba(0, 0, 0, 0.25);
+      align-self: end;
+      margin-top: 21px;
+      flex-basis: auto;
+      flex-grow: 1;
+      border: 4px solid #640707;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 1.1;
+      object-fit: contain;
+      object-position: center;
+      width: 55px;
+      align-self: stretch;
+      margin: auto 0;
+    }
+    
+    .user-icons {
+      align-self: stretch;
+      display: flex;
+      gap: 6px;
+    }
+    
+    .notification-icon {
+      aspect-ratio: 0.76;
+      object-fit: contain;
+      object-position: center;
+      width: 32px;
+      margin: auto 0;
+    }
+    
+    .settings-icon {
+      aspect-ratio: 0.92;
+      object-fit: contain;
+      object-position: center;
+      width: 88px;
+    }
+    
+    .user-role {
+      color: #fff;
+      margin: auto 0;
+      font: 500 32px Inter, sans-serif;
+    }
+    
+    .nav-menu {
+      align-self: center;
+      display: flex;
+      width: 100%;
+      max-width: 1319px;
+      align-items: center;
+      gap: 40px 44px;
+      color: #fff;
+      margin: 8px 0 0 11px;
+      font: 500 24px Inter, sans-serif;
+    }
+    
+    .nav-item {
+      align-self: stretch;
+      flex-grow: 1;
+      margin: auto 0;
+      border: 1px solid #000;
+    }
+    
+    .nav-item-active {
+      background-color: #141010;
+      align-self: stretch;
+      padding: 10px 29px;
+      border: 1px solid #000;
+    }
+    
+    .main-content {
+      background-color: #f9ecec;
+      box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+      align-self: center;
+      display: flex;
+      margin-top: 19px;
+      width: 100%;
+      max-width: 1381px;
+      flex-direction: column;
+      padding: 42px 43px 27px 16px;
+      font: 24px Inter, sans-serif;
+    }
+    
+    .content-header {
+      align-self: end;
+      display: flex;
+      width: 100%;
+      max-width: 1253px;
+      align-items: start;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .section-title {
+      background-color: #930e6e;
+      display: flex;
+      align-items: start;
+      gap: 21px;
+      color: #0b0101;
+      font-weight: 500;
+      padding: 1px 16px 11px;
+      border: 1px solid #000;
+    }
+    
+    .section-title-text {
+      margin-top: 12px;
+      flex-basis: auto;
+    }
+    
+    .section-icon {
+      aspect-ratio: 0.6;
+      object-fit: contain;
+      object-position: center;
+      width: 24px;
+      border-radius: 50%;
+    }
+    
+    .search-bar {
+      border-radius: 30px;
+      background-color: #a49d9d;
+      display: flex;
+      margin-top: 7px;
+      align-items: start;
+      gap: 40px 100px;
+      color: #070101;
+      font-weight: 400;
+      padding: 10px 5px 10px 13px;
+    }
+    
+    .search-icon {
+      aspect-ratio: 1.07;
+      object-fit: contain;
+      object-position: center;
+      width: 30px;
+    }
+    
+    .activity-table {
+      display: flex;
+      margin-top: 17px;
+      width: 100%;
+      max-width: 1253px;
+      flex-direction: column;
+      font-weight: 400;
+    }
+    
+    .table-header {
+      border-radius: 10px;
+      background-color: #32f8e7;
+      display: flex;
+      gap: 40px 82px;
+      color: #000;
+      flex-wrap: wrap;
+      padding: 14px 33px;
+    }
+    
+    .header-item {
+      flex-grow: 1;
+    }
+    
+    .table-body {
+      border-radius: 10px;
+      background-color: #fff;
+      display: flex;
+      margin-top: 7px;
+      width: 100%;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1px 62px;
+    }
+    
+    .column {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      color: #000;
+      white-space: nowrap;
+      margin: auto 0;
+    }
+    
+    .column-item {
+      margin-top: 20px;
+    }
+    
+    .details-link {
+      color: #ae0f0f;
+    }
+    
+    .action-buttons {
+      align-self: start;
+      display: flex;
+      margin-top: 13px;
+      flex-direction: column;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    .approve-button {
+      background-color: #cef3ff;
+      color: #089326;
+      padding: 4px 10px;
+    }
+    
+    .cancel-button {
+      background-color: #eee6d1;
+      color: #930829;
+      padding: 4px 10px;
+    }
+    
+    .pagination {
+      align-self: center;
+      display: flex;
+      margin-top: 363px;
+      width: 280px;
+      max-width: 100%;
+      gap: 9px;
+      font-size: 20px;
+      color: #000;
+      font-weight: 500;
+    }
+    
+    .page-number {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      padding: 0 8px;
+    }
+    
+    .page-number-active {
+      background-color: #d9d9d9;
+    }
+    
+    .page-ellipsis {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      padding: 0 7px;
+    }
+    
+    .page-nav {
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+    }
+    
+    @media (max-width: 991px) {
+      .header {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+    
+      .header-content {
+        max-width: 100%;
+      }
+    
+      .main-title {
+        font-size: 40px;
+      }
+    
+      .nav-menu {
+        max-width: 100%;
+      }
+    
+      .main-content {
+        max-width: 100%;
+        padding-right: 20px;
+      }
+    
+      .content-header {
+        max-width: 100%;
+      }
+    
+      .table-header {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .table-body {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .column-numbers {
+        display: none;
+      }
+    
+      .pagination {
+        margin-top: 40px;
+      }
+    }
+    </style>
+    
+    <section class="activity-management">
+      <header class="header">
+        <div class="header-content">
+          <div class="title-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/87739a22cb78dbc7752194b08b9d0d9c16f81c53028d59152ac5b11fd6d00445?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Management System Logo" class="logo">
+            <h1 class="main-title">QUẢN LÍ DÂN CƯ</h1>
+          </div>
+          <div class="user-info">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ca686f24d634265fd1f82aa3a63e057761f99063c58cc7db765e0a8c453d7b78?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="User Avatar" class="user-avatar">
+            <div class="user-icons">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4dc67e8225b1faececb1f2c3f8a2f1d748c4aabf80acb967b50da7bd1f9b8d48?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Notification Icon" class="notification-icon">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/71d75e0a1b4075f214b659021d7fd4a2f67de47e2ceb3be8724100991087fbc9?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Settings Icon" class="settings-icon">
+            </div>
+            <span class="user-role">Cán bộ quản lý</span>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <a href="#" class="nav-item">Quản lý nhân khẩu</a>
+          <a href="#" class="nav-item">Quản lý dân cư</a>
+          <a href="#" class="nav-item">Quản lý hộ khẩu</a>
+          <a href="#" class="nav-item-active">Hoạt động đoàn thể</a>
+          <a href="#" class="nav-item">Quản lí CB</a>
+        </nav>
+      </header>
+    
+      <main class="main-content">
+        <div class="content-header">
+          <div class="section-title">
+            <h2 class="section-title-text">Hoạt động đoàn thể</h2>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d50d122ca83cf0c550a9e57fd86ff33a8e197ac9ad617641128a2494c85116ba?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="" class="section-icon">
+          </div>
+          <form class="search-bar">
+            <label for="search-input" class="visually-hidden">Tìm kiếm</label>
+            <input type="text" id="search-input" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/f615c2e5958e3a7bb71a6b9f098f51408e364148e169b004da24af3c2f001c44?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Search Icon" class="search-icon">
+          </form>
+        </div>
+    
+        <div class="activity-table">
+          <div class="table-header">
+            <span class="header-item">STT</span>
+            <span class="header-item">Mã hoạt động</span>
+            <span class="header-item">Thời gian tổ chức</span>
+          </div>
+          <div class="table-body">
+            <div class="column column-numbers">
+              <span>1</span>
+              <span class="column-item">2</span>
+              <span class="column-item">3</span>
+              <span class="column-item">4</span>
+            </div>
+            <div class="column">
+              <span>111111</span>
+              <span class="column-item">8777374773</span>
+              <span class="column-item">0102000030</span>
+              <span class="column-item">0102055030</span>
+            </div>
+            <div class="column">
+              <span>13:00 02/02/2024</span>
+              <span class="column-item">15:00 02/02/2024</span>
+              <span class="column-item">19:00 02/02/2024</span>
+              <span class="column-item">19:00 02/02/2024</span>
+            </div>
+            <div class="column">
+              <a href="#" class="details-link">Xem chi tiết ...</a>
+              <a href="#" class="details-link column-item">Xem chi tiết ...</a>
+              <a href="#" class="details-link column-item">Xem chi tiết ...</a>
+              <a href="#" class="details-link column-item">Xem chi tiết ...</a>
+            </div>
+            <div class="action-buttons">
+              <div class="button-group">
+                <button class="approve-button">Duyệt</button>
+                <button class="cancel-button">Hủy</button>
+              </div>
+              <div class="button-group column-item">
+                <button class="approve-button">Duyệt</button>
+                <button class="cancel-button">Hủy</button>
+              </div>
+              <div class="button-group column-item">
+                <button class="approve-button">Duyệt</button>
+                <button class="cancel-button">Hủy</button>
+              </div>
+              <div class="button-group column-item">
+                <button class="approve-button">Duyệt</button>
+                <button class="cancel-button">Hủy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <nav class="pagination" aria-label="Pagination">
+          <span class="page-number page-number-active">1</span>
+          <a href="#" class="page-number">2</a>
+          <a href="#" class="page-number">3</a>
+          <span class="page-ellipsis">...</span>
+          <a href="#" class="page-number">99</a>
+          <a href="#" class="page-nav" aria-label="Next Page">&gt;</a>
+          <a href="#" class="page-nav" aria-label="Last Page">&gt;&gt;</a>
+        </nav>
+      </main>
+    </section>

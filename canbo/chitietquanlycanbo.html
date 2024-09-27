@@ -1,0 +1,99 @@
+<style>
+    .employee-card {
+      border-radius: 20px;
+      max-width: 612px;
+      font-family: Inter, sans-serif;
+      color: #000;
+    }
+    
+    .card-content {
+      background-color: #fff;
+      border-radius: 20px 20px 0 0;
+      padding: 0 0 103px;
+      width: 100%;
+    }
+    
+    .card-header {
+      background-color: #32F8E7;
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px 22px;
+      font-size: 32px;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+    
+    .header-icon {
+      width: 34px;
+      margin-top: 14px;
+    }
+    
+    .employee-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 24px;
+      margin: 37px 0 -21px 35px;
+    }
+    
+    .info-row {
+      display: flex;
+      gap: 30px;
+      margin-top: 34px;
+    }
+    
+    .info-label {
+      font-weight: 700;
+    }
+    
+    .info-value {
+      font-weight: 500;
+    }
+    
+    @media (max-width: 991px) {
+      .card-content {
+        padding-bottom: 100px;
+      }
+    
+      .employee-info {
+        margin: 0 0 10px 10px;
+      }
+    
+      .position-info {
+        margin-top: 40px;
+      }
+    }
+    </style>
+    
+    <section class="employee-card">
+      <div class="card-content">
+        <header class="card-header">
+          <h2>Xem chi tiết</h2>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/76ec17b4fef3b405e2765b242e0dd0ea5e96b79040861cde933480c390faf688?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="" class="header-icon" />
+        </header>
+        <div class="employee-info">
+          <div class="info-row">
+            <span class="info-label">Mã CB</span>
+            <span class="info-value">001200223278</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Họ và tên :</span>
+            <span class="info-value">Duy Tùng</span>
+          </div>
+          <p class="info-row position-info">
+            <span class="info-label">Chức vụ :</span>
+            <span class="info-value">Quản lí chung cư</span>
+          </p>
+          <p class="info-row">
+            <span class="info-label">Tổ dân cư phụ trách :</span>
+            <span class="info-value">Tổ dân cư số 1</span>
+          </p>
+          <div class="info-row">
+            <span class="info-label">Ghi chú :</span>
+            <span class="info-value">Không có</span>
+          </div>
+        </div>
+      </div>
+    </section>

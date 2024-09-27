@@ -1,0 +1,825 @@
+<style>
+    .resident-management {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      align-items: center;
+    }
+    
+    .header {
+      background-color: #229fed;
+      align-self: stretch;
+      width: 100%;
+      padding: 0 10px 7px 41px;
+    }
+    
+    @media (max-width: 991px) {
+      .header {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+    }
+    
+    .header-content {
+      display: flex;
+      gap: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .header-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+    
+    .main-title-section {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 45%;
+      margin-left: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .main-title-section {
+        width: 100%;
+      }
+    }
+    
+    .title-wrapper {
+      display: flex;
+      margin-top: 9px;
+      width: 100%;
+      flex-direction: column;
+      font-family: Inter, sans-serif;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 991px) {
+      .title-wrapper {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    
+    .title-container {
+      align-self: start;
+      display: flex;
+      gap: 24px;
+      font-size: 48px;
+      color: #efefef;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 991px) {
+      .title-container {
+        font-size: 40px;
+      }
+    }
+    
+    .logo {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 85px;
+    }
+    
+    .main-title {
+      text-shadow: 5px 5px 40px rgba(0, 0, 0, 0.25);
+      align-self: end;
+      margin-top: 21px;
+      flex-basis: auto;
+      flex-grow: 1;
+      border: 4px solid #640707;
+    }
+    
+    @media (max-width: 991px) {
+      .main-title {
+        font-size: 40px;
+      }
+    }
+    
+    .nav-links {
+      display: flex;
+      margin-top: 12px;
+      gap: 40px 67px;
+      font-size: 24px;
+      color: #fff;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 991px) {
+      .nav-links {
+        max-width: 100%;
+      }
+    }
+    
+    .nav-link {
+      background-color: #141310;
+      flex-grow: 1;
+      width: fit-content;
+      padding: 10px 24px;
+      border: 1px solid #000;
+    }
+    
+    @media (max-width: 991px) {
+      .nav-link {
+        padding: 0 20px;
+      }
+    }
+    
+    .nav-link-secondary {
+      flex-grow: 1;
+      width: 142px;
+      margin: auto 0;
+      border: 1px solid #000;
+    }
+    
+    .household-management {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 15%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .household-management {
+        width: 100%;
+      }
+    }
+    
+    .household-link {
+      color: #fff;
+      margin-top: 116px;
+      font: 500 24px Inter, sans-serif;
+      border: 1px solid #000;
+    }
+    
+    @media (max-width: 991px) {
+      .household-link {
+        margin-top: 40px;
+      }
+    }
+    
+    .additional-links {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 40%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .additional-links {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .additional-links-wrapper {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    
+    .additional-links-container {
+      gap: 20px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .additional-links-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+    
+    .group-activities {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 56%;
+      margin-left: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .group-activities {
+        width: 100%;
+      }
+    }
+    
+    .group-activities-wrapper {
+      display: flex;
+      margin-top: 27px;
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 991px) {
+      .group-activities-wrapper {
+        margin-top: 33px;
+      }
+    }
+    
+    .icon-container {
+      align-self: end;
+      display: flex;
+      gap: 18px;
+    }
+    
+    .icon-1 {
+      aspect-ratio: 1.12;
+      object-fit: contain;
+      object-position: center;
+      width: 55px;
+    }
+    
+    .icon-2 {
+      aspect-ratio: 0.81;
+      object-fit: contain;
+      object-position: center;
+      width: 33px;
+      margin: auto 0;
+    }
+    
+    .group-activities-link {
+      color: #fff;
+      align-self: start;
+      margin-top: 40px;
+      font: 500 24px Inter, sans-serif;
+      border: 1px solid #000;
+    }
+    
+    .management-staff {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 44%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .management-staff {
+        width: 100%;
+      }
+    }
+    
+    .management-staff-wrapper {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      font-family: Inter, sans-serif;
+      color: #fff;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 991px) {
+      .management-staff-wrapper {
+        margin-top: 6px;
+      }
+    }
+    
+    .staff-title {
+      display: flex;
+      gap: 4px;
+      font-size: 32px;
+    }
+    
+    .staff-icon {
+      aspect-ratio: 0.94;
+      object-fit: contain;
+      object-position: center;
+      width: 88px;
+    }
+    
+    .staff-text {
+      margin-top: 11px;
+    }
+    
+    .staff-link {
+      font-size: 24px;
+      align-self: start;
+      margin: 20px 0 0 10px;
+      border: 1px solid #000;
+    }
+    
+    .search-section {
+      display: flex;
+      margin-top: 26px;
+      width: 100%;
+      max-width: 1377px;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font: 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .search-section {
+        max-width: 100%;
+      }
+    }
+    
+    .population-tab {
+      background-color: #930e6e;
+      display: flex;
+      padding-left: 18px;
+      align-items: flex-start;
+      gap: 40px 99px;
+      color: #0b0101;
+      font-weight: 500;
+      border: 1px solid #000;
+    }
+    
+    .population-text {
+      align-self: start;
+    }
+    
+    .population-icon {
+      aspect-ratio: 0.97;
+      object-fit: contain;
+      object-position: center;
+      width: 83px;
+      z-index: 10;
+      margin: auto 0;
+    }
+    
+    @media (max-width: 991px) {
+      .population-icon {
+        margin-right: -15px;
+      }
+    }
+    
+    .search-bar {
+      border-radius: 30px;
+      background-color: #a49d9d;
+      align-self: start;
+      display: flex;
+      margin-top: 4px;
+      align-items: start;
+      gap: 40px 100px;
+      color: #070101;
+      font-weight: 400;
+      flex-wrap: wrap;
+      padding: 6px 4px 15px 31px;
+    }
+    
+    @media (max-width: 991px) {
+      .search-bar {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+    }
+    
+    .search-icon {
+      aspect-ratio: 1.5;
+      object-fit: contain;
+      object-position: center;
+      width: 42px;
+    }
+    
+    .data-table {
+      background-color: #f9ecec;
+      box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      margin-top: 48px;
+      width: 100%;
+      max-width: 1381px;
+      flex-direction: column;
+      padding: 80px 34px 398px;
+    }
+    
+    @media (max-width: 991px) {
+      .data-table {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px 100px;
+      }
+    }
+    
+    .table-header {
+      border-radius: 10px;
+      background-color: #32f8e7;
+      display: flex;
+      gap: 40px 100px;
+      color: #000;
+      padding: 14px 33px;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .table-header {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    .header-registration-time {
+      flex-grow: 1;
+      width: 185px;
+    }
+    
+    .header-reason {
+      flex-grow: 1;
+      width: 560px;
+    }
+    
+    @media (max-width: 991px) {
+      .header-reason {
+        max-width: 100%;
+      }
+    }
+    
+    .table-body {
+      border-radius: 10px;
+      background-color: #fff;
+      width: 100%;
+      margin: 7px 0 -80px;
+      padding: 14px 21px 14px 44px;
+    }
+    
+    @media (max-width: 991px) {
+      .table-body {
+        max-width: 100%;
+        margin-bottom: 10px;
+        padding: 0 20px;
+      }
+    }
+    
+    .table-row {
+      gap: 20px;
+      display: flex;
+    }
+    
+    @media (max-width: 991px) {
+      .table-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+    
+    .row-data {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 61%;
+      margin-left: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .row-data {
+        width: 100%;
+      }
+    }
+    
+    .data-container {
+      display: flex;
+      flex-grow: 1;
+      align-items: start;
+      gap: 20px;
+      color: #000;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font: 400 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .data-container {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+    
+    .serial-numbers {
+      display: flex;
+      margin-top: 8px;
+      flex-direction: column;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 991px) {
+      .serial-numbers {
+        white-space: initial;
+      }
+    }
+    
+    .id-numbers {
+      display: flex;
+      margin-top: 8px;
+      flex-direction: column;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 991px) {
+      .id-numbers {
+        white-space: initial;
+      }
+    }
+    
+    .id-2 {
+      margin-top: 23px;
+    }
+    
+    @media (max-width: 991px) {
+      .id-2 {
+        margin-right: 5px;
+      }
+    }
+    
+    .id-3 {
+      margin-top: 23px;
+    }
+    
+    @media (max-width: 991px) {
+      .id-3 {
+        margin-right: 3px;
+      }
+    }
+    
+    .registration-times {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .time-group-1 {
+      display: flex;
+      gap: 40px 48px;
+    }
+    
+    .time-1 {
+      flex-grow: 1;
+      width: 195px;
+    }
+    
+    .time-group-2 {
+      display: flex;
+      margin-top: 11px;
+      gap: 40px 43px;
+    }
+    
+    .time-2 {
+      flex-grow: 1;
+      width: 200px;
+    }
+    
+    .time-group-3 {
+      display: flex;
+      margin-top: 14px;
+      gap: 40px 42px;
+    }
+    
+    .time-3 {
+      flex-grow: 1;
+      width: 201px;
+    }
+    
+    .row-actions {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 39%;
+      margin-left: 20px;
+    }
+    
+    @media (max-width: 991px) {
+      .row-actions {
+        width: 100%;
+      }
+    }
+    
+    .actions-container {
+      display: flex;
+      flex-grow: 1;
+      gap: 20px;
+      justify-content: space-between;
+      font: 24px Inter, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .actions-container {
+        margin-top: 40px;
+      }
+    }
+    
+    .view-details {
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      color: #ae0f0f;
+      font-weight: 400;
+    }
+    
+    .view-details-2 {
+      margin-top: 20px;
+    }
+    
+    .view-details-3 {
+      margin-top: 21px;
+    }
+    
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 991px) {
+      .action-buttons {
+        white-space: initial;
+      }
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .button-group {
+        white-space: initial;
+      }
+    }
+    
+    .approve-button {
+      background-color: #cef3ff;
+      color: #089326;
+      padding: 4px 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .approve-button {
+        white-space: initial;
+      }
+    }
+    
+    .cancel-button {
+      background-color: #eee6d1;
+      color: #930829;
+      padding: 4px 10px;
+    }
+    
+    @media (max-width: 991px) {
+      .cancel-button {
+        white-space: initial;
+      }
+    }
+    
+    .button-group-2 {
+      display: flex;
+      margin-top: 11px;
+      align-items: start;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .button-group-2 {
+        white-space: initial;
+      }
+    }
+    
+    .button-group-3 {
+      display: flex;
+      margin-top: 11px;
+      align-items: start;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    @media (max-width: 991px) {
+      .button-group-3 {
+        white-space: initial;
+      }
+    }
+    </style>
+    
+    <section class="resident-management">
+      <header class="header">
+        <div class="header-content">
+          <div class="main-title-section">
+            <div class="title-wrapper">
+              <div class="title-container">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/87739a22cb78dbc7752194b08b9d0d9c16f81c53028d59152ac5b11fd6d00445?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Logo" class="logo" />
+                <h1 class="main-title">QUẢN LÍ DÂN CƯ</h1>
+              </div>
+              <nav class="nav-links">
+                <a href="#" class="nav-link">Quản lý nhân khẩu</a>
+                <a href="#" class="nav-link-secondary">Quản lý dân cư</a>
+              </nav>
+            </div>
+          </div>
+          <div class="household-management">
+            <a href="#" class="household-link">Quản lý hộ khẩu</a>
+          </div>
+          <div class="additional-links">
+            <div class="additional-links-wrapper">
+              <div class="additional-links-container">
+                <div class="group-activities">
+                  <div class="group-activities-wrapper">
+                    <div class="icon-container">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f27480e83f80cef7f234d51dcdce301cdbbc5f777176586eaf23e275c4f74af8?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Icon 1" class="icon-1" />
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/06e963c114eeb1a145dab9f52920ad4f38ce1b2ace20715cfa19e715edc16557?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Icon 2" class="icon-2" />
+                    </div>
+                    <a href="#" class="group-activities-link">Hoạt động đoàn thể</a>
+                  </div>
+                </div>
+                <div class="management-staff">
+                  <div class="management-staff-wrapper">
+                    <div class="staff-title">
+                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/da237aab2e3dd557b7dfb0d94fd1006bbee24c5fedf7bc4c41ac4675ff310e21?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Staff Icon" class="staff-icon" />
+                      <div class="staff-text">
+                        Cán bộ <br /> quản lý
+                      </div>
+                    </div>
+                    <a href="#" class="staff-link">Quản lí CB</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <div class="search-section">
+        <div class="population-tab">
+          <h2 class="population-text">Nhân khẩu</h2>
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9655f8fad6e8c4050b0b43e7fdc4bf9af8327a946983d0f7ead70581a1d6bc87?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Population Icon" class="population-icon" />
+        </div>
+        <form class="search-bar">
+          <label for="searchInput" class="visually-hidden">Tìm kiếm</label>
+          <input type="text" id="searchInput" placeholder="Tìm kiếm" aria-label="Tìm kiếm" />
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6319a08d0b80b754a692eea4a019fe1f2949d2b5054fba762f1c5ffe7a642ff2?placeholderIfAbsent=true&apiKey=b4719b7274c64d8cad71526643127a5d" alt="Search Icon" class="search-icon" />
+        </form>
+      </div>
+      
+      <section class="data-table">
+        <div class="table-header">
+          <div>STT</div>
+          <div>CCCD</div>
+          <div class="header-registration-time">Thời gian đăng kí</div>
+          <div class="header-reason">Lý do</div>
+        </div>
+        <div class="table-body">
+          <div class="table-row">
+            <div class="row-data">
+              <div class="data-container">
+                <div class="serial-numbers">
+                  <div>1</div>
+                  <div>2</div>
+                  <div>3</div>
+                </div>
+                <div class="id-numbers">
+                  <div>033204000387</div>
+                  <div class="id-2">027204001389</div>
+                  <div class="id-3">010200003030</div>
+                </div>
+                <div class="registration-times">
+                  <div class="time-group-1">
+                    <div class="time-1">13:00 18/01/2023</div>
+                    <div>...</div>
+                  </div>
+                  <div class="time-group-2">
+                    <div class="time-2">15:00 18/01/2022</div>
+                    <div>...</div>
+                  </div>
+                  <div class="time-group-3">
+                    <div class="time-3">19:00 02/02/2022</div>
+                    <div>...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-actions">
+              <div class="actions-container">
+                <div class="view-details">
+                  <a href="#" tabindex="0">Xem chi tiết...</a>
+                  <a href="#" class="view-details-2" tabindex="0">Xem chi tiết...</a>
+                  <a href="#" class="view-details-3" tabindex="0">Xem chi tiết...</a>
+                </div>
+                <div class="action-buttons">
+                  <div class="button-group">
+                    <button class="approve-button" tabindex="0">Duyệt</button>
+                    <button class="cancel-button" tabindex="0">Hủy</button>
+                  </div>
+                  <div class="button-group-2">
+                    <button class="approve-button" tabindex="0">Duyệt</button>
+                    <button class="cancel-button" tabindex="0">Hủy</button>
+                  </div>
+                  <div class="button-group-3">
+                    <button class="approve-button" tabindex="0">Duyệt</button>
+                    <button class="cancel-button" tabindex="0">Hủy</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
